@@ -1,0 +1,9 @@
+<view class="container">
+  <view class="product-list" wx:if="{{products.length}}">
+    <product-card wx:for="{{products}}" wx:key="id" product="{{item}}" />
+  </view>
+  <view class="empty-state" wx:elif="{{!loading}}">
+    <ui-icon name="heart" size="64" />
+    <text class="empty-state-text">暂无收藏</text>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "117 校服商城",
+  "disableScroll": true,
+  "usingComponents": {
+    "product-card": "/components/product-card/product-card"
+  }
+}

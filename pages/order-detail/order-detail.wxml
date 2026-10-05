@@ -1,0 +1,39 @@
+<view class="container" wx:if="{{order}}">
+  <view class="status-card card">
+    <text class="status">{{order.statusText}}</text>
+    <text class="time" wx:if="{{order.createTime}}">下单时间 {{order.createTime}}</text>
+  </view>
+
+  <view class="section card">
+    <view class="product-row" wx:for="{{order.items}}" wx:key="productId">
+      <view class="thumb img-portrait-34">
+        <image src="{{item.cover || order.cover}}" mode="aspectFit" />
+      </view>
+      <view class="info">
+        <text class="name">{{item.productName}}</text>
+        <text class="meta" wx:if="{{item.size}}">尺码：{{item.size}}</text>
+        <text class="meta">数量：{{item.quantity}}</text>
+      </view>
+    </view>
+    <view class="amount-row">
+      <text>实付</text>
+      <text class="amount">{{amountText}}</text>
+    </view>
+  </view>
+
+  <view class="section card" wx:if="{{order.address}}">
+    <text class="section-title">收货地址</text>
+    <text class="addr-name">{{order.address.name}} {{order.address.phone}}</text>
+    <text class="addr-detail">{{order.address.province}}{{order.address.city}}{{order.address.district}}{{order.address.detail}}</text>
+  </view>
+
+  <view class="actions safe-bottom">
+    <button wx:if="{{order.canCancel}}" class="btn" bindtap="onCancel">取消订单</button>
+    <button wx:if="{{order.canRefund}}" class="btn" bindtap="onRefund">申请退款</button>
+    <button wx:if="{{order.canPay}}" class="btn primary btn-primary" bindtap="onPay">微信支付</button>
+  </view>
+</view>
+
+<view class="empty-state" wx:elif="{{!loading}}">
+  <text class="empty-state-text">订单不存在</text>
+</view>

@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="form-card card">
+    <view class="form-item">
+      <text class="form-label">反馈类型</text>
+      <picker mode="selector" range="{{types}}" value="{{typeIndex}}" bindchange="onTypeChange">
+        <view class="picker-value">{{types[typeIndex]}}</view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <text class="form-label">反馈内容</text>
+      <textarea class="feedback-textarea" placeholder="请详细描述您的问题或建议..." value="{{content}}" bindinput="onContentInput" maxlength="500" />
+      <text class="char-count">{{content.length}}/500</text>
+    </view>
+    <view class="form-item">
+      <text class="form-label">联系方式（选填）</text>
+      <input class="form-input" placeholder="手机号或微信号，方便我们联系您" value="{{contact}}" bindinput="onContactInput" />
+    </view>
+  </view>
+
+  <view class="submit-wrap">
+    <button class="submit-btn btn-primary" bindtap="onSubmit">提交反馈</button>
+  </view>
+</view>

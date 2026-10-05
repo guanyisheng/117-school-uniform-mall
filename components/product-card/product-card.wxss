@@ -1,0 +1,114 @@
+.product-card {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 20rpx;
+  overflow: hidden;
+  box-shadow: 0 8rpx 32rpx rgba(21, 45, 80, 0.08);
+}
+
+.product-card:active {
+  opacity: 0.92;
+  transform: scale(0.985);
+  transition: transform 0.15s ease;
+}
+
+.card-cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background-color: #e8ecf1;
+  background-image:
+    linear-gradient(45deg, #dde3ea 25%, transparent 25%),
+    linear-gradient(-45deg, #dde3ea 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #dde3ea 75%),
+    linear-gradient(-45deg, transparent 75%, #dde3ea 75%);
+  background-size: 24rpx 24rpx;
+  background-position: 0 0, 0 12rpx, 12rpx -12rpx, -12rpx 0;
+  overflow: hidden;
+}
+
+.cover-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: transparent;
+}
+
+.cover-empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22rpx;
+  color: #9aa3af;
+}
+
+.cover-tag {
+  position: absolute;
+  left: 16rpx;
+  top: 16rpx;
+  max-width: calc(100% - 32rpx);
+  padding: 8rpx 16rpx;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 999rpx;
+  font-size: 20rpx;
+  color: #1565FF;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-shadow: 0 4rpx 12rpx rgba(21, 101, 255, 0.12);
+}
+
+.card-body {
+  padding: 20rpx 20rpx 24rpx;
+}
+
+.card-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #1f2937;
+  line-height: 1.45;
+  min-height: 80rpx;
+}
+
+.card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16rpx;
+  padding-top: 16rpx;
+  border-top: 1rpx solid #f0f2f5;
+}
+
+.card-price {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #666666;
+}
+
+.card-price.has-price {
+  font-size: 32rpx;
+  color: #FF4D4F;
+}
+
+.card-price.is-quote {
+  font-size: 26rpx;
+  color: #1565FF;
+  background: rgba(21, 101, 255, 0.08);
+  padding: 6rpx 14rpx;
+  border-radius: 8rpx;
+}
+
+.card-link {
+  display: flex;
+  align-items: center;
+  gap: 4rpx;
+  font-size: 22rpx;
+  color: #999999;
+}

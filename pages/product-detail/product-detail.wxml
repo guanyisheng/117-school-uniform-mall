@@ -1,0 +1,92 @@
+<view class="container" wx:if="{{product}}">
+  <swiper class="product-swiper" wx:if="{{product.images.length}}" indicator-dots circular indicator-color="rgba(0,0,0,0.2)" indicator-active-color="#1565FF">
+    <swiper-item wx:for="{{product.images}}" wx:key="index">
+      <view class="img-portrait">
+        <image class="swiper-img" src="{{item}}" mode="aspectFit" />
+      </view>
+    </swiper-item>
+  </swiper>
+  <view class="product-swiper empty-cover" wx:else>
+    <text class="empty-hint">暂无商品图片</text>
+  </view>
+
+  <view class="info-card card">
+    <text class="price-value">{{priceText}}</text>
+    <text class="product-name">{{product.name}}</text>
+    <text class="school-name">{{product.schoolName}}</text>
+  </view>
+
+  <view class="sku-card card">
+    <text class="sku-label">尺码</text>
+    <view class="size-tags" wx:if="{{product.sizes && product.sizes.length}}">
+      <text
+        class="size-tag {{selectedSize === item ? 'active' : ''}}"
+        wx:for="{{product.sizes}}"
+        wx:key="*this"
+        data-size="{{item}}"
+        bindtap="onSelectSize"
+      >{{item}}</text>
+    </view>
+    <text class="empty-hint" wx:else>暂无尺码，请后台为商品配置 sizes</text>
+  </view>
+
+  <view class="sku-card card">
+    <view class="qty-row">
+      <text class="sku-label">数量</text>
+      <view class="qty-ctrl">
+        <view class="qty-btn" bindtap="onQtyMinus">-</view>
+        <text class="qty-num">{{quantity}}</text>
+        <view class="qty-btn" bindtap="onQtyPlus">+</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="tab-bar card">
+    <view class="tab-item {{activeTab === 'intro' ? 'active' : ''}}" data-tab="intro" bindtap="onTabChange">介绍</view>
+    <view class="tab-item {{activeTab === 'size' ? 'active' : ''}}" data-tab="size" bindtap="onTabChange">尺码</view>
+    <view class="tab-item {{activeTab === 'aftersale' ? 'active' : ''}}" data-tab="aftersale" bindtap="onTabChange">售后</view>
+    <view class="tab-item {{activeTab === 'detail' ? 'active' : ''}}" data-tab="detail" bindtap="onTabChange">图片</view>
+  </view>
+
+  <view class="tab-content card">
+    <view wx:if="{{activeTab === 'intro'}}">
+      <text class="content-text" wx:if="{{product.intro}}">{{product.intro}}</text>
+      <text class="empty-hint" wx:else>暂无介绍，请在后台填写商品描述</text>
+    </view>
+    <view wx:elif="{{activeTab === 'size'}}">
+      <view class="size-tags" wx:if="{{product.sizes && product.sizes.length}}">
+        <text class="size-tag {{selectedSize === item ? 'active' : ''}}" wx:for="{{product.sizes}}" wx:key="*this" data-size="{{item}}" bindtap="onSelectSize">{{item}}</text>
+      </view>
+      <text class="content-text pre-line" wx:if="{{product.sizeGuide}}">{{product.sizeGuide}}</text>
+      <text class="empty-hint" wx:if="{{!(product.sizes && product.sizes.length) && !product.sizeGuide}}">暂无尺码说明，请后台配置尺码与尺码表</text>
+    </view>
+    <view wx:elif="{{activeTab === 'aftersale'}}">
+      <text class="content-text pre-line" wx:if="{{product.afterSale}}">{{product.afterSale}}</text>
+      <text class="empty-hint" wx:else>暂无售后说明。可先联系客服：13312542331</text>
+    </view>
+    <view wx:elif="{{activeTab === 'detail'}}">
+      <block wx:if="{{product.detailImages && product.detailImages.length}}">
+        <image class="detail-img" wx:for="{{product.detailImages}}" wx:key="index" src="{{item}}" mode="widthFix" />
+      </block>
+      <text class="empty-hint" wx:else>暂无详情图，请后台上传封面图/详情图</text>
+    </view>
+  </view>
+
+  <view class="bottom-placeholder"></view>
+
+  <view class="bottom-bar safe-bottom">
+    <view class="bar-action" bindtap="onFavorite">
+      <ui-icon name="heart" active="{{isFavorite}}" size="40" />
+      <text class="action-text {{isFavorite ? 'active' : ''}}">{{isFavorite ? '已收藏' : '收藏'}}</text>
+    </view>
+    <view class="bar-action" bindtap="onContact">
+      <ui-icon name="phone" size="40" />
+      <text class="action-text">客服</text>
+    </view>
+    <block wx:if="{{enableShopping}}">
+      <button class="cart-btn" bindtap="onAddCart">加入购物车</button>
+      <button class="book-btn" bindtap="onBook">立即购买</button>
+    </block>
+    <button wx:else class="book-btn" bindtap="onContact">联系咨询</button>
+  </view>
+</view>

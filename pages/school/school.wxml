@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="page-header">
+    <text class="page-title">选择学校</text>
+  </view>
+
+  <view class="school-list">
+    <view class="school-card card" wx:for="{{schools}}" wx:key="id" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="onSchoolTap">
+      <image class="school-logo" src="{{item.logo}}" mode="aspectFill" />
+      <view class="school-info">
+        <text class="school-name">{{item.name}}</text>
+        <text class="school-desc">{{item.description}}</text>
+      </view>
+      <ui-icon name="arrow" size="32" />
+    </view>
+  </view>
+
+  <view class="empty-state" wx:if="{{!schools.length && !loading}}">
+    <ui-icon name="empty" size="64" />
+    <text class="empty-state-text">暂无学校</text>
+  </view>
+</view>

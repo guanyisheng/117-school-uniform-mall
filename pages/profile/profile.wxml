@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="user-card card" bindtap="onLoginTap">
+    <view class="avatar avatar-text" wx:if="{{isLogin && avatarText}}">
+      <text class="avatar-char">{{avatarText}}</text>
+    </view>
+    <view class="avatar avatar-icon" wx:else>
+      <ui-icon name="avatar" size="48" />
+    </view>
+    <view class="user-info">
+      <text class="nickname">{{userInfo.nickname}}</text>
+      <text class="meta" wx:if="{{isLogin && userInfo.school}}">{{userInfo.school}}{{userInfo.childName ? ' · ' + userInfo.childName : ''}}</text>
+      <text class="meta" wx:if="{{!isLogin && enableLogin}}">登录后查看订单信息</text>
+      <text class="meta" wx:if="{{!isLogin && !enableLogin}}">当前可浏览商品，登录暂未开放</text>
+    </view>
+    <ui-icon wx:if="{{!isLogin && enableLogin}}" name="arrow" size="32" />
+  </view>
+
+  <view class="menu-card card">
+    <view class="menu-item" wx:for="{{menuList}}" wx:key="id" data-item="{{item}}" bindtap="onMenuTap">
+      <view class="menu-left">
+        <ui-icon name="{{item.icon}}" size="40" />
+        <text class="menu-name">{{item.name}}</text>
+      </view>
+      <ui-icon name="arrow" size="32" />
+    </view>
+  </view>
+
+  <view class="logout-wrap" wx:if="{{isLogin}}">
+    <button class="logout-btn" bindtap="onLogout">退出登录</button>
+  </view>
+</view>

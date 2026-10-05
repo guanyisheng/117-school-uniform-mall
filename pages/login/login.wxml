@@ -1,0 +1,84 @@
+<view class="container">
+  <view class="login-header">
+    <text class="login-title">{{step === 1 ? '登录' : '填写信息'}}</text>
+    <text class="login-sub" wx:if="{{step === 1}}">{{loginSub}}</text>
+  </view>
+
+  <view class="form-card card" wx:if="{{step === 1}}">
+    <view class="mode-tabs" wx:if="{{enableSms && enablePassword}}">
+      <view class="mode-tab {{loginMode === 'sms' ? 'active' : ''}}" data-mode="sms" bindtap="onModeChange">验证码登录</view>
+      <view class="mode-tab {{loginMode === 'password' ? 'active' : ''}}" data-mode="password" bindtap="onModeChange">密码登录</view>
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">手机号</text>
+      <input
+        class="form-input"
+        type="number"
+        maxlength="11"
+        placeholder="请输入手机号"
+        bindinput="onPhoneInput"
+      />
+    </view>
+
+    <view class="form-item" wx:if="{{loginMode === 'sms' && enableSms}}">
+      <text class="form-label">验证码</text>
+      <view class="code-row">
+        <input
+          class="form-input code-input"
+          type="number"
+          maxlength="6"
+          placeholder="请输入验证码"
+          bindinput="onCodeInput"
+        />
+        <view class="code-btn {{countdown > 0 ? 'disabled' : ''}}" catchtap="onSendCode">
+          {{countdown > 0 ? countdown + 's' : '获取验证码'}}
+        </view>
+      </view>
+    </view>
+
+    <view class="form-item" wx:if="{{loginMode === 'password' && enablePassword}}">
+      <text class="form-label">密码</text>
+      <input
+        class="form-input"
+        password
+        maxlength="32"
+        placeholder="请输入密码（至少6位）"
+        bindinput="onPasswordInput"
+      />
+    </view>
+
+    <view class="form-item" wx:if="{{enableIdCard}}">
+      <text class="form-label">孩子身份证号</text>
+      <input
+        class="form-input"
+        type="idcard"
+        maxlength="18"
+        placeholder="用于学籍身份校验"
+        bindinput="onIdCardInput"
+      />
+    </view>
+
+    <button class="submit-btn btn-primary" type="default" catchtap="onLogin">登录</button>
+  </view>
+
+  <view class="form-card card" wx:if="{{step === 2}}">
+    <view class="form-item">
+      <text class="form-label">孩子姓名</text>
+      <input class="form-input" placeholder="请输入" bindinput="onChildNameInput" />
+    </view>
+    <view class="form-item">
+      <text class="form-label">学校</text>
+      <picker mode="selector" range="{{schoolNames}}" value="{{schoolIndex}}" bindchange="onSchoolChange">
+        <view class="picker-value {{schoolIndex < 0 ? 'placeholder' : ''}}">
+          {{schoolIndex >= 0 ? schoolNames[schoolIndex] : '请选择'}}
+        </view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <text class="form-label">年级</text>
+      <input class="form-input" placeholder="如：三年级、初一" bindinput="onClassInput" />
+    </view>
+    <button class="submit-btn btn-primary" type="default" catchtap="onCompleteProfile">保存</button>
+  </view>
+</view>

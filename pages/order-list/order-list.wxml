@@ -1,0 +1,40 @@
+<view class="container">
+  <view class="tabs card">
+    <view
+      class="tab {{activeTab === item.key ? 'active' : ''}}"
+      wx:for="{{tabs}}"
+      wx:key="key"
+      data-key="{{item.key}}"
+      bindtap="onTab"
+    >{{item.name}}</view>
+  </view>
+
+  <view wx:if="{{list.length}}">
+    <view class="order-card card" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" bindtap="onDetail">
+      <view class="head">
+        <text class="oid">订单 {{item.id}}</text>
+        <text class="status">{{item.statusText}}</text>
+      </view>
+      <view class="body">
+        <view class="thumb img-portrait-34">
+          <image src="{{item.cover}}" mode="aspectFit" />
+        </view>
+        <view class="info">
+          <text class="name">{{item.productName}}</text>
+          <text class="meta" wx:if="{{item.size}}">尺码 {{item.size}} · x{{item.quantity}}</text>
+          <text class="meta" wx:else>x{{item.quantity}}</text>
+          <text class="amount">{{item.amountText}}</text>
+        </view>
+      </view>
+      <view class="actions">
+        <button wx:if="{{item.canCancel}}" class="act" size="mini" data-id="{{item.id}}" catchtap="onCancel">取消</button>
+        <button wx:if="{{item.canPay}}" class="act primary" size="mini" data-id="{{item.id}}" catchtap="onPay">去支付</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:elif="{{!loading}}">
+    <ui-icon name="tag" size="64" />
+    <text class="empty-state-text">暂无订单</text>
+  </view>
+</view>

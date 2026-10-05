@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/school/school",
+    "pages/profile/profile",
+    "pages/order-confirm/order-confirm",
+    "pages/product-publish/product-publish",
+    "pages/product-manage/product-manage",
+    "pages/school-products/school-products",
+    "pages/product-detail/product-detail",
+    "pages/login/login",
+    "pages/address/address",
+    "pages/address-edit/address-edit",
+    "pages/favorite/favorite",
+    "pages/cart/cart",
+    "pages/order-list/order-list",
+    "pages/order-detail/order-detail",
+    "pages/about/about",
+    "pages/feedback/feedback"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#1565FF",
+    "navigationBarTitleText": "117 校服商城",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F5F7FA",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#999999",
+    "selectedColor": "#1565FF",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/school/school",
+        "text": "学校"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+    "ui-icon": "/components/icon/icon"
+  }
+}

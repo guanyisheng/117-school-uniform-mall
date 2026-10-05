@@ -1,0 +1,28 @@
+<view class="container">
+  <view class="toolbar">
+    <button class="btn-primary add-btn" bindtap="onCreate">上架新商品</button>
+  </view>
+
+  <view wx:if="{{list.length}}">
+    <view class="item card" wx:for="{{list}}" wx:key="id">
+      <view class="thumb img-portrait-34">
+        <image src="{{item.cover}}" mode="aspectFit" />
+      </view>
+      <view class="info">
+        <text class="name">{{item.name}}</text>
+        <text class="meta">{{item.schoolName}} · {{item.priceText}}</text>
+        <text class="status {{item.isOnSale ? 'on' : 'off'}}">{{item.statusText}}</text>
+        <view class="actions">
+          <text class="link" data-id="{{item.id}}" bindtap="onEdit">编辑</text>
+          <text class="link" data-id="{{item.id}}" bindtap="onOffShelf" wx:if="{{item.isOnSale}}">下架</text>
+          <text class="link danger" data-id="{{item.id}}" bindtap="onDelete">删除</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:elif="{{!loading}}">
+    <ui-icon name="tag" size="64" />
+    <text class="empty-state-text">暂无商品</text>
+  </view>
+</view>

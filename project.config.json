@@ -1,0 +1,93 @@
+{
+  "description": "117 校服商城 - 预览版配置",
+  "packOptions": {
+    "ignore": [
+      {
+        "value": "scripts",
+        "type": "folder"
+      },
+      {
+        "value": "uniform-system-117",
+        "type": "folder"
+      },
+      {
+        "value": "docs",
+        "type": "folder"
+      },
+      {
+        "value": "mock",
+        "type": "folder"
+      },
+      {
+        "value": "README.md",
+        "type": "file"
+      }
+    ],
+    "include": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "enhance": true,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "compileHotReLoad": false,
+    "compileWorklet": false,
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "minifyWXML": true,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false,
+    "condition": false,
+    "swc": false,
+    "disableSWC": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "compileType": "miniprogram",
+  "libVersion": "3.16.1",
+  "appid": "wxfd021b6309adacb4",
+  "projectname": "117-school-uniform-mall",
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "首页",
+          "pathName": "pages/index/index",
+          "query": ""
+        },
+        {
+          "name": "鲁甸二中",
+          "pathName": "pages/school-products/school-products",
+          "query": "schoolId=school_1&schoolName=鲁甸二中"
+        },
+        {
+          "name": "鲁甸四小",
+          "pathName": "pages/school-products/school-products",
+          "query": "schoolId=school_2&schoolName=鲁甸四小"
+        },
+        {
+          "name": "鲁甸镇中",
+          "pathName": "pages/school-products/school-products",
+          "query": "schoolId=school_3&schoolName=鲁甸镇中"
+        },
+        {
+          "name": "昭通育苗幼儿园",
+          "pathName": "pages/school-products/school-products",
+          "query": "schoolId=school_4&schoolName=昭通育苗幼儿园"
+        }
+      ]
+    }
+  },
+  "simulatorPluginLibVersion": {},
+  "editorSetting": {}
+}

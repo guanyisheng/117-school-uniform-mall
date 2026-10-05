@@ -1,0 +1,9 @@
+{
+  "desc": "117 校服商城 sitemap",
+  "rules": [
+    {
+      "action": "allow",
+      "page": "*"
+    }
+  ]
+}

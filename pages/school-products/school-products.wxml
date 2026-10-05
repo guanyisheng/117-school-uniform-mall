@@ -1,0 +1,15 @@
+<view class="container">
+  <view class="school-header card">
+    <text class="school-name">{{schoolName}}</text>
+    <text class="school-count">{{products.length}} 款</text>
+  </view>
+
+  <view class="product-list" wx:if="{{products.length}}">
+    <product-card wx:for="{{products}}" wx:key="id" product="{{item}}" />
+  </view>
+
+  <view class="empty-state" wx:elif="{{!loading}}">
+    <ui-icon name="empty" size="64" />
+    <text class="empty-state-text">暂无商品</text>
+  </view>
+</view>

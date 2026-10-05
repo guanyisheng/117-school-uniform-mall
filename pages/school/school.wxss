@@ -1,0 +1,51 @@
+.page-header {
+  padding: 28rpx 32rpx 12rpx;
+}
+
+.page-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.school-list {
+  padding: 12rpx 24rpx 40rpx;
+}
+
+.school-card {
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+  margin-bottom: 16rpx;
+}
+
+.school-logo {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 8rpx;
+  flex-shrink: 0;
+  background: #f5f5f5;
+}
+
+.school-info {
+  flex: 1;
+  margin-left: 20rpx;
+  overflow: hidden;
+}
+
+.school-name {
+  display: block;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.school-desc {
+  display: block;
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 6rpx;
+}
+
+.arrow {
+  display: none;
+}

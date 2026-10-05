@@ -1,0 +1,257 @@
+.product-swiper {
+  width: 100%;
+  height: 1000rpx;
+  /* 浅灰底上看不清白校服，用浅棋盘格提高对比 */
+  background-color: #e8ecf1;
+  background-image:
+    linear-gradient(45deg, #dde3ea 25%, transparent 25%),
+    linear-gradient(-45deg, #dde3ea 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #dde3ea 75%),
+    linear-gradient(-45deg, transparent 75%, #dde3ea 75%);
+  background-size: 32rpx 32rpx;
+  background-position: 0 0, 0 16rpx, 16rpx -16rpx, -16rpx 0;
+}
+
+.img-portrait {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 24rpx;
+}
+
+.swiper-img {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.info-card {
+  margin: 20rpx 24rpx;
+  padding: 28rpx 32rpx;
+}
+
+.price-value {
+  display: block;
+  font-size: 36rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.product-name {
+  display: block;
+  font-size: 30rpx;
+  color: #333;
+  margin-top: 16rpx;
+  line-height: 1.4;
+}
+
+.school-name {
+  display: block;
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 8rpx;
+}
+
+.tab-bar {
+  margin: 0 24rpx;
+  display: flex;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 24rpx 0;
+  font-size: 26rpx;
+  color: #666;
+  position: relative;
+}
+
+.tab-item.active {
+  color: #1565FF;
+  font-weight: 500;
+}
+
+.tab-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40rpx;
+  height: 4rpx;
+  background: #1565FF;
+  border-radius: 2rpx;
+}
+
+.tab-content {
+  margin: 20rpx 24rpx;
+  padding: 28rpx 32rpx;
+  min-height: 160rpx;
+}
+
+.size-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  margin-bottom: 24rpx;
+}
+
+.size-tag {
+  font-size: 26rpx;
+  color: #333;
+  background: #f5f5f5;
+  padding: 12rpx 28rpx;
+  border-radius: 8rpx;
+}
+
+.size-tag.active {
+  color: #1565FF;
+  background: rgba(21, 101, 255, 0.1);
+  border: 1rpx solid #1565FF;
+}
+
+.sku-card {
+  margin: 0 24rpx 20rpx;
+  padding: 24rpx 32rpx;
+}
+
+.sku-label {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.qty-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.qty-row .sku-label {
+  margin-bottom: 0;
+}
+
+.qty-ctrl {
+  display: flex;
+  align-items: center;
+}
+
+.qty-btn {
+  width: 56rpx;
+  height: 56rpx;
+  line-height: 52rpx;
+  text-align: center;
+  background: #f5f5f5;
+  border-radius: 8rpx;
+  font-size: 32rpx;
+  color: #333;
+}
+
+.qty-num {
+  min-width: 64rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+
+.cart-btn {
+  flex: 1;
+  background: #fff;
+  color: #1565FF;
+  border: 1rpx solid #1565FF;
+  font-size: 26rpx;
+  border-radius: 8rpx;
+  line-height: 76rpx;
+  height: 80rpx;
+  margin-left: 12rpx;
+  padding: 0;
+}
+
+.cart-btn::after {
+  border: none;
+}
+
+.empty-hint {
+  display: block;
+  font-size: 26rpx;
+  color: #999;
+  line-height: 1.6;
+  padding: 8rpx 0;
+}
+
+.empty-cover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-text {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.7;
+}
+
+.pre-line {
+  white-space: pre-line;
+}
+
+.detail-img {
+  width: 100%;
+  display: block;
+  margin-bottom: 12rpx;
+}
+
+.bottom-placeholder {
+  height: 120rpx;
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  padding: 12rpx 24rpx;
+  border-top: 1rpx solid #f0f0f0;
+  z-index: 100;
+}
+
+.bar-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20rpx;
+  min-width: 80rpx;
+}
+
+.action-text {
+  font-size: 20rpx;
+  color: #666;
+  margin-top: 4rpx;
+}
+
+.action-text.active {
+  color: #1565FF;
+}
+
+.book-btn {
+  flex: 1;
+  background: #1565FF;
+  color: #fff;
+  font-size: 26rpx;
+  border-radius: 8rpx;
+  line-height: 80rpx;
+  height: 80rpx;
+  margin-left: 12rpx;
+  border: none;
+  padding: 0;
+}
+
+.book-btn::after {
+  border: none;
+}

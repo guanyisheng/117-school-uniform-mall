@@ -1,0 +1,37 @@
+<view class="container cart-page">
+  <view wx:if="{{items.length}}">
+    <view class="cart-item card" wx:for="{{items}}" wx:key="id">
+      <view class="check {{item.selected ? 'on' : ''}}" data-id="{{item.id}}" bindtap="onToggleItem"></view>
+      <view class="thumb img-portrait-34">
+        <image src="{{item.cover}}" mode="aspectFit" />
+      </view>
+      <view class="info">
+        <text class="name">{{item.productName}}</text>
+        <text class="meta" wx:if="{{item.size}}">尺码：{{item.size}}</text>
+        <text class="price">¥{{item.price}}</text>
+        <view class="row">
+          <view class="qty-ctrl">
+            <view class="qty-btn" data-id="{{item.id}}" bindtap="onQtyMinus">-</view>
+            <text class="qty-num">{{item.quantity}}</text>
+            <view class="qty-btn" data-id="{{item.id}}" bindtap="onQtyPlus">+</view>
+          </view>
+          <text class="del" data-id="{{item.id}}" bindtap="onRemove">删除</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:elif="{{!loading}}">
+    <ui-icon name="shirt" size="64" />
+    <text class="empty-state-text">购物车是空的</text>
+  </view>
+
+  <view class="cart-bar safe-bottom" wx:if="{{items.length}}">
+    <view class="all-check" bindtap="onToggleAll">
+      <view class="check {{allSelected ? 'on' : ''}}"></view>
+      <text>全选</text>
+    </view>
+    <text class="total">合计 {{totalText}}</text>
+    <button class="checkout-btn btn-primary" bindtap="onCheckout">结算({{selectedCount}})</button>
+  </view>
+</view>

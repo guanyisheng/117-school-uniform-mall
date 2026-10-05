@@ -1,0 +1,17 @@
+.DS_Store
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.cer
+*.crt
+node_modules/
+miniprogram_npm/
+project.private.config.json
+sourcemap.zip
+*.log
+.vscode/
+.idea/
+docs/CURSOR_BACKEND_TODO.md
+docs/BACKEND_HANDOFF.md

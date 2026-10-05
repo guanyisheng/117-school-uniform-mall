@@ -1,0 +1,86 @@
+<view class="page" style="height: {{pageHeight}}px">
+  <swiper
+    class="page-swiper"
+    style="height: {{pageHeight}}px"
+    vertical
+    current="{{panelIndex}}"
+    duration="280"
+    easing-function="easeInOutCubic"
+    bindchange="onPanelChange"
+  >
+    <swiper-item class="panel-item">
+      <view class="panel-home" style="height: {{pageHeight}}px">
+        <view class="hero-area" style="height: {{heroHeight}}px">
+          <view class="hero-fullscreen" wx:if="{{banners.length}}">
+            <image
+              wx:for="{{banners}}"
+              wx:key="id"
+              class="hero-img {{current === index ? 'hero-img--active' : ''}}"
+              src="{{item.image}}"
+              mode="aspectFill"
+            />
+          </view>
+          <view class="hero-placeholder" wx:else />
+          <view class="hero-dots" wx:if="{{banners.length > 1}}">
+            <view
+              wx:for="{{banners}}"
+              wx:key="id"
+              class="hero-dot {{current === index ? 'hero-dot--active' : ''}}"
+              data-index="{{index}}"
+              bindtap="onDotTap"
+            />
+          </view>
+        </view>
+
+        <view class="panel-menu">
+          <view class="panel-hint">
+            <text class="panel-hint-text">上滑查看全部校服</text>
+            <view class="panel-hint-arrow" />
+          </view>
+
+          <view class="quick-glass">
+            <view class="quick-glass-inner">
+              <view
+                class="quick-item"
+                wx:for="{{quickEntries}}"
+                wx:key="id"
+                data-id="{{item.id}}"
+                bindtap="onQuickEntry"
+              >
+                <ui-icon name="{{item.icon}}" size="48" />
+                <text class="quick-name">{{item.name}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+
+    <swiper-item class="panel-item">
+      <scroll-view
+        scroll-y
+        class="panel-all"
+        style="height: {{pageHeight}}px"
+        enhanced
+        show-scrollbar="{{false}}"
+      >
+        <view class="below-section">
+          <view class="section-header">
+            <text class="section-title">全部校服</text>
+            <text class="filter-tag" wx:if="{{filterLabel}}">{{filterLabel}}</text>
+            <text class="section-more" bindtap="onReset">重置</text>
+          </view>
+
+          <view class="product-list" wx:if="{{products.length}}">
+            <product-card wx:for="{{products}}" wx:key="id" product="{{item}}" />
+          </view>
+
+          <view class="empty-state" wx:elif="{{!productsLoading}}">
+            <ui-icon name="empty" size="64" />
+            <text class="empty-state-text">暂无商品</text>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

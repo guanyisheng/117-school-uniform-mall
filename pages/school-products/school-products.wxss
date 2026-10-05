@@ -1,0 +1,25 @@
+.school-header {
+  margin: 20rpx 24rpx;
+  padding: 24rpx 32rpx;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.school-name {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.school-count {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.product-list {
+  padding: 0 24rpx 40rpx;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+}

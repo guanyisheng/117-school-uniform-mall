@@ -1,0 +1,59 @@
+<view class="page">
+  <view class="hero card">
+    <image class="logo" src="/img/logo.png" mode="aspectFit" />
+    <text class="app-name">117 校服商城</text>
+    <text class="company">{{company}}</text>
+    <text class="version">版本 {{version}}</text>
+  </view>
+
+  <view class="card">
+    <text class="section-title">关于我们</text>
+    <text class="body-text">{{intro}}</text>
+  </view>
+
+  <view class="card">
+    <text class="section-title">LOGO 寓意</text>
+    <text class="body-text">{{logoMeaning}}</text>
+  </view>
+
+  <block wx:for="{{sections}}" wx:key="title">
+    <view class="card">
+      <text class="section-title">{{item.title}}</text>
+      <text class="body-text pre-line">{{item.content}}</text>
+    </view>
+  </block>
+
+  <view class="card">
+    <text class="section-title">服务特色</text>
+    <view class="feature-list">
+      <view class="feature-item" wx:for="{{features}}" wx:key="*this">
+        <view class="feature-dot" />
+        <text class="feature-text">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <text class="section-title">服务人群</text>
+    <text class="scope-text">{{serviceScope}}</text>
+    <text class="scope-sub">幼儿园 · 中小学 · 高等院校 · 企事业单位</text>
+  </view>
+
+  <view class="card">
+    <text class="section-title">联系我们</text>
+    <view class="contact-item" bindtap="onCall">
+      <text class="contact-label">客服电话</text>
+      <text class="contact-value link">{{phone}}</text>
+    </view>
+    <view class="contact-item">
+      <text class="contact-label">地址</text>
+      <text class="contact-value">{{address}}</text>
+    </view>
+    <view class="contact-item">
+      <text class="contact-label">工作时间</text>
+      <text class="contact-value">{{workTime}}</text>
+    </view>
+  </view>
+
+  <view class="footer-space" />
+</view>

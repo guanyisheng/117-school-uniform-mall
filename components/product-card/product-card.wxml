@@ -1,0 +1,17 @@
+<view class="product-card" bindtap="onDetail">
+  <view class="card-cover">
+    <image wx:if="{{product.cover}}" class="cover-img" src="{{product.cover}}" mode="aspectFit" lazy-load />
+    <view wx:else class="cover-empty">暂无图片</view>
+    <view class="cover-tag" wx:if="{{product.schoolName}}">{{product.schoolName}}</view>
+  </view>
+  <view class="card-body">
+    <text class="card-title">{{product.name}}</text>
+    <view class="card-bottom">
+      <text class="card-price {{product.price ? 'has-price' : 'is-quote'}}">{{priceText}}</text>
+      <view class="card-link">
+        <text>详情</text>
+        <ui-icon name="arrow" size="22" />
+      </view>
+    </view>
+  </view>
+</view>
